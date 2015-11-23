@@ -1,0 +1,41 @@
+{
+  "name": "pcr-experiment",
+  "version": "0.1.1",
+  "description": "Experimental Node.js Penn Course Review frontend",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "pcr": "^0.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.1.18",
+    "babel-core": "^6.1.21",
+    "babel-preset-es2015": "^6.1.18"
+  },
+  "scripts": {
+    "prepublish": "make js",
+    "start": "make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pennlabs/pcr-experiment.git"
+  },
+  "keywords": [
+    "penn",
+    "upenn",
+    "university",
+    "open data",
+    "pcr"
+  ],
+  "author": "Adel Qalieh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pennlabs/pcr-experiment/issues"
+  },
+  "homepage": "https://github.com/pennlabs/pcr-experiment",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
