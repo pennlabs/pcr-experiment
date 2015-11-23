@@ -2,6 +2,9 @@ var express = require('express');
 var path = require('path');
 var PCR = require('pcr');
 
+var TOKEN = process.env.PCR_AUTH_TOKEN || 'public';
+var pcr = new PCR(TOKEN);
+
 var app = express();
 
 app.set('port', process.env.PORT || 3000);
