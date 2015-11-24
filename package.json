@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "Experimental Node.js Penn Course Review frontend",
   "dependencies": {
+    "async": "^1.5.0",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "pcr": "^0.1.1"

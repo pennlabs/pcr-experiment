@@ -1,3 +1,4 @@
+var async = require('async');
 var express = require('express');
 var path = require('path');
 var PCR = require('pcr');
@@ -13,6 +14,18 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.render('index');
+});
+
+app.get('/course/:courseId', (req, res) => {
+  async.parallel({
+    course: (callback) => pcr.courseHistory(req.params.courseId, callback),
+    reviews: (callback) => pcr.averageReview(req.params.courseId, callback)
+  }, (err, results) => {
+    res.render('course', {
+      course: results.course.result,
+      reviews: results.reviews
+    });
+  });
 });
 
 app.listen(app.get('port'), () => {
