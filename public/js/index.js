@@ -13,4 +13,6 @@ $('#bloodhound .typeahead').typeahead({
   name: 'courses',
   display: 'title',
   source: courses
+}).on('typeahead:selected', function (e, datum) {
+  document.location.href += datum.url;
 });
