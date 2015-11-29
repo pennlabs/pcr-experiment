@@ -9,7 +9,23 @@
     </head>
   <body>
     <h1 class="title">Penn Course Review</h1>
-    <%= course.name %>
-    Difficulty: <%= reviews.rDifficulty %>
+    <h2><%= course.aliases[0] %></h2>
+    <h3><%= course.name %></h3>
+    <% if (comments) { %>
+      <p><%= comments %></p>
+    <% } %>
+    <h3>Average</h3>
+    <div class="box">
+      <small>Course</small>
+      <%= reviews.rCourseQuality.toFixed(1) %>
+    </div>
+    <div class="box">
+      <small>Instructor</small>
+      <%= reviews.rInstructorQuality.toFixed(1) %>
+    </div>
+    <div class="box">
+      <small>Difficulty</small>
+      <%= reviews.rDifficulty.toFixed(1) %>
+    </div>
   </body>
 </html>

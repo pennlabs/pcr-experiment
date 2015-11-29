@@ -19,11 +19,20 @@ app.get('/', (req, res) => {
 app.get('/course/:courseId', (req, res) => {
   async.parallel({
     course: (callback) => pcr.courseHistory(req.params.courseId, callback),
-    reviews: (callback) => pcr.averageReview(req.params.courseId, callback)
+    reviews: (callback) => pcr.averageReview(req.params.courseId, callback),
+    historyReviews: (callback) => pcr.courseHistoryReviews(req.params.courseId, callback)
   }, (err, results) => {
+    var history = results.historyReviews.result.values;
+    var comments;
+    history.forEach((c) => {
+      if (c.comments && c.comments.length > 0) {
+        comments = c.comments;
+      }
+    });
     res.render('course', {
       course: results.course.result,
-      reviews: results.reviews
+      reviews: results.reviews,
+      comments: comments
     });
   });
 });
