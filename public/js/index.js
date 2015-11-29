@@ -15,6 +15,7 @@ $('#bloodhound .typeahead').typeahead({
   source: courses
 }).on('typeahead:render', function (e) {
   $('#bloodhound').find('.tt-selectable:first').addClass('tt-cursor');
+  // Remove cursor when manually selecting items
   $('#bloodhound').find('.tt-selectable').on('mouseover', function (e) {
     $('#bloodhound').find('.tt-selectable:first').removeClass('tt-cursor');
   });
