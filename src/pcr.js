@@ -47,6 +47,19 @@ app.get('/instructor/:instructorId', (req, res) => {
   });
 });
 
+app.get('/department/:department', (req, res) => {
+  async.parallel({
+    department: (callback) => pcr.department(req.params.department, callback)
+  }, (err, results) => {
+    let courses = results.department.result.coursehistories;
+    courses.sort((a, b) => a.aliases[0].localeCompare(b.aliases[0]));
+    res.render('department', {
+      department: results.department.result,
+      courses: courses
+    });
+  });
+});
+
 app.listen(app.get('port'), () => {
   console.log('Server running on port ' + app.get('port'));
 });
