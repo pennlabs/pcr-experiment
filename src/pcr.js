@@ -37,6 +37,16 @@ app.get('/course/:courseId', (req, res) => {
   });
 });
 
+app.get('/instructor/:instructorId', (req, res) => {
+  async.parallel({
+    instructor: (callback) => pcr.instructor(req.params.instructorId, callback)
+  }, (err, results) => {
+    res.render('instructor', {
+      instructor: results.instructor.result
+    });
+  });
+});
+
 app.listen(app.get('port'), () => {
   console.log('Server running on port ' + app.get('port'));
 });

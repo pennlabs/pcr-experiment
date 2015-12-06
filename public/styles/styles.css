@@ -58,3 +58,7 @@ h1 {
 .tt-suggestion p {
     margin: 0;
 }
+
+pre {
+  white-space: pre-wrap;
+}
