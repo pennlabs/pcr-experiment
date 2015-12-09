@@ -29,6 +29,9 @@ app.get('/course/:courseId', (req, res) => {
         comments = c.comments;
       }
     });
+    if (!comments) {
+      comments = 'No qualitative comments available for this course.';
+    }
     res.render('course', {
       course: results.course.result,
       reviews: results.reviews,
