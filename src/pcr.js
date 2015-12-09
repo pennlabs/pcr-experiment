@@ -64,6 +64,11 @@ app.get('/department/:department', (req, res) => {
   });
 });
 
+app.locals.mostRecent = (history, attr) => {
+  let lastCourse = history[history.length - 1];
+  return parseFloat(lastCourse.ratings[attr]).toFixed(1);
+};
+
 app.listen(app.get('port'), () => {
   console.log('Server running on port ' + app.get('port'));
 });
