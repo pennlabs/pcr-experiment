@@ -1,5 +1,23 @@
 <%- include('header') %>
-<h1 class="title">Penn Course Review</h1>
+<h1><a href="/">Penn Course Review</a></h1>
 <h2><%= instructor.name %></h2>
-<pre><%= JSON.stringify(instructor) %></pre>
+<h3 class="table-title">Courses Taught</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>Course ID</td>
+      <td>Course Title</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% instructor.reviews.values.forEach(function (i) { -%>
+    <tr>
+      <td><a href="/course/<%= courseURL(i.section.primary_alias) %>">
+        <%= i.section.primary_alias %>
+      </a></td>
+      <td><%= i.section.name %></td>
+    </tr>
+    <% }) -%>
+  </tbody>
+</table>
 <%- include('footer') %>

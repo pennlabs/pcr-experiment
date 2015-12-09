@@ -69,6 +69,10 @@ app.locals.mostRecent = (history, attr) => {
   return parseFloat(lastCourse.ratings[attr]).toFixed(1);
 };
 
+app.locals.courseURL = (section) => {
+  return section.split('-').slice(0, 2).join('-');
+};
+
 app.listen(app.get('port'), () => {
   console.log('Server running on port ' + app.get('port'));
 });

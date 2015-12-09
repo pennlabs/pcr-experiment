@@ -20,10 +20,7 @@
     <small>Difficulty</small>
     <p><%= reviews.rDifficulty.toFixed(1) %></p>
   </div>
-<br>
-<br>
-<br>
-<h3>Most Recent</h3>
+<h3 class="recent">Most Recent</h3>
   <div class="box">
     <small>Course</small>
     <p><%= mostRecent(history, 'rCourseQuality') %></p>
@@ -52,7 +49,7 @@
     <% history.forEach(function (h) { -%>
     <tr>
       <td><%= h.section.name %></td>
-      <td><%= h.instructor.name %></td>
+      <td><a href="/instructor/<%= h.instructor.id %>"><%= h.instructor.name %></a></td>
       <td><%= h.ratings.rCourseQuality %></td>
       <td><%= h.ratings.rInstructorQuality %></td>
       <td><%= h.ratings.rDifficulty %></td>

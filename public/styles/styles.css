@@ -41,8 +41,17 @@ table {
   margin-top: 20px;
 }
 
+.table-title {
+  margin-top: 15px;
+  margin-bottom: -10px;
+}
+
 thead td {
   border-bottom: 2px solid #00695C;
+}
+
+tbody td a {
+  color: #00796B;
 }
 
 #bloodhound {
@@ -106,6 +115,11 @@ thead td {
 
 pre {
   white-space: pre-wrap;
+}
+
+.recent {
+  padding-top: 20px;
+  clear: both;
 }
 
 .box {
