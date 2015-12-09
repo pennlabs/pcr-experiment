@@ -1,9 +1,54 @@
 h1 {
+  font-size: 2em;
+}
+
+.title {
+  font-size: 5em;
   text-align: center;
+  padding: 1em 0;
+  font-weight: 300;
+}
+
+h1 a, h1 a:hover {
+  color: #006064;
+  text-decoration: none;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+h3 {
+  margin-top: 5px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #4DB6AC;
+}
+
+.container {
+  background-color: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  padding-bottom: 25px;
+}
+
+.footer {
+  padding-top: 20px;
+}
+
+table {
+  margin-top: 20px;
+}
+
+thead td {
+  border-bottom: 2px solid #00695C;
 }
 
 #bloodhound {
-  margin: 50px 0;
+  margin: 0 auto;
+  padding-bottom: 60px;
+  width: 400px;
 }
 
 .tt-input,
@@ -61,4 +106,26 @@ h1 {
 
 pre {
   white-space: pre-wrap;
+}
+
+.box {
+  float: left;
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+  border-radius: 3px;
+  padding-top: 2px;
+  text-align: center;
+  background: #00BFA5;
+  color: white;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.box small {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.box p {
+  font-size: 24px;
 }

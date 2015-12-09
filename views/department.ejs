@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Penn Course Review Experiment</title>
-    <meta name="description" content="">
-    <link rel='stylesheet' href='/styles/styles.css' />
-    </head>
-  <body>
-    <h1 class="title">Penn Course Review</h1>
-    <h2><%= department.id %></h2>
-    <h3><%= department.name %></h3>
-    <ul>
-    <% for (var i = 0; i < courses.length; i++) { %>
-       <li><%= courses[i].name %></li>
-    <% } %>
-    </ul>
-    <pre><%= JSON.stringify(department) %></pre>
-  </body>
-</html>
+<%- include('header') %>
+<h1 class="title">Penn Course Review</h1>
+<h2><%= department.id %></h2>
+<h3><%= department.name %></h3>
+<ul>
+<% for (var i = 0; i < courses.length; i++) { %>
+   <li><%= courses[i].name %></li>
+<% } %>
+</ul>
+<pre><%= JSON.stringify(department) %></pre>
+<%- include('footer') %>

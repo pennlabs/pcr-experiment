@@ -32,7 +32,8 @@ app.get('/course/:courseId', (req, res) => {
     res.render('course', {
       course: results.course.result,
       reviews: results.reviews,
-      comments: comments
+      comments: comments,
+      history: history
     });
   });
 });

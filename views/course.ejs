@@ -1,31 +1,49 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Penn Course Review Experiment</title>
-    <meta name="description" content="">
-    <link rel='stylesheet' href='/styles/styles.css' />
-    </head>
-  <body>
-    <h1 class="title">Penn Course Review</h1>
-    <h2><%= course.aliases[0] %></h2>
-    <h3><%= course.name %></h3>
-    <% if (comments) { %>
-      <p><%= comments %></p>
-    <% } %>
-    <h3>Average</h3>
-    <div class="box">
-      <small>Course</small>
-      <%= reviews.rCourseQuality.toFixed(1) %>
-    </div>
-    <div class="box">
-      <small>Instructor</small>
-      <%= reviews.rInstructorQuality.toFixed(1) %>
-    </div>
-    <div class="box">
-      <small>Difficulty</small>
-      <%= reviews.rDifficulty.toFixed(1) %>
-    </div>
-  </body>
-</html>
+<%- include('header') %>
+<h1><a href="/">Penn Course Review</a></h1>
+<h2><%= course.aliases[0] %></h2>
+<div class="row">
+<div class="col-sm-8">
+  <h3><%= course.name %></h3>
+  <% if (comments) { %>
+    <p><%= comments %></p>
+  <% } %>
+</div>
+<div class="col-sm-4">
+<h3>Average</h3>
+  <div class="box">
+    <small>Course</small>
+    <p><%= reviews.rCourseQuality.toFixed(1) %></p>
+  </div>
+  <div class="box">
+    <small>Instructor</small>
+    <p><%= reviews.rInstructorQuality.toFixed(1) %></p>
+  </div>
+  <div class="box">
+    <small>Difficulty</small>
+    <p><%= reviews.rDifficulty.toFixed(1) %></p>
+  </div>
+</div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Course</td>
+      <td>Instructor</td>
+      <td>Course Quality</td>
+      <td>Instructor Quality</td>
+      <td>Difficulty</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% history.forEach(function (h) { -%>
+    <tr>
+      <td><%= h.section.name %></td>
+      <td><%= h.instructor.name %></td>
+      <td><%= h.ratings.rCourseQuality %></td>
+      <td><%= h.ratings.rInstructorQuality %></td>
+      <td><%= h.ratings.rDifficulty %></td>
+    </tr>
+    <% }) -%>
+  </tbody>
+</table>
+<%- include('footer') %>
