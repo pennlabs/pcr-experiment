@@ -35,6 +35,7 @@
   </div>
 </div>
 </div>
+<div class="table-responsive">
 <table class="table table-hover">
   <thead>
     <tr>
@@ -57,4 +58,29 @@
     <% }) -%>
   </tbody>
 </table>
+</div>
+<h3>History</h3>
+<div class="chart">
+</div>
+<script>
+var courseQuality = <%- dataArray(history, 'rCourseQuality') -%>;
+var instructorQuality = <%- dataArray(history, 'rInstructorQuality') -%>;
+var difficulty = <%- dataArray(history, 'rDifficulty') -%>;
+var chart = c3.generate({
+  bindto: '.chart',
+  data: {
+    columns: [
+      ['Course Quality'].concat(courseQuality),
+      ['Instructor Quality'].concat(instructorQuality),
+      ['Difficulty'].concat(difficulty)
+    ]
+  },
+  axis: {
+    y: {
+      min: 0,
+      max: 4
+    }
+  }
+});
+</script>
 <%- include('footer') %>

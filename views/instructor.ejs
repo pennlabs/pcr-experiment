@@ -1,6 +1,22 @@
 <%- include('header') %>
 <h1><a href="/">Penn Course Review</a></h1>
 <h2><%= instructor.name %></h2>
+<% if (directory) { %>
+<h2 class="subhead"><small><%= directory.list_organization %></small></h2>
+<h4>Contact Information</h4>
+<p class="contact">
+  <span class="glyphicon glyphicon-earphone"></span>
+  Phone number &mdash; <a href="tel:<%= directory.list_phone %>">
+    <%= directory.list_phone %>
+  </a>
+</p>
+<p class="contact">
+  <span class="glyphicon glyphicon-envelope"></span>
+  Email &mdash; <a href="mailto:<%= directory.list_email.toLowerCase() %>">
+    <%= directory.list_email.toLowerCase() %>
+  </a>
+</p>
+<% } %>
 <h3 class="table-title">Courses Taught</h3>
 <table class="table table-hover">
   <thead>

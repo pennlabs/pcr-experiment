@@ -2,9 +2,15 @@ var async = require('async');
 var express = require('express');
 var path = require('path');
 var PCR = require('pcr');
+var penn = require('penn-sdk');
 
 var TOKEN = process.env.PCR_AUTH_TOKEN || 'public';
 var pcr = new PCR(TOKEN);
+
+var directory = new penn.Directory(
+    process.env.DIRECTORY_API_USERNAME,
+    process.env.DIRECTORY_API_PASSWORD
+);
 
 var app = express();
 
@@ -42,11 +48,16 @@ app.get('/course/:courseId', (req, res) => {
 });
 
 app.get('/instructor/:instructorId', (req, res) => {
-  async.parallel({
-    instructor: (callback) => pcr.instructor(req.params.instructorId, callback)
-  }, (err, results) => {
-    res.render('instructor', {
-      instructor: results.instructor.result
+  pcr.instructor(req.params.instructorId, (err, instructor) => {
+    directory.search({
+      'first_name': instructor.result.first_name.split(' ')[0],
+      'last_name': instructor.result.last_name,
+      'affiliation': 'FAC'
+    }, (penndir) => {
+      res.render('instructor', {
+        instructor: instructor.result,
+        directory: penndir.result_data[0]
+      });
     });
   });
 });
@@ -71,6 +82,12 @@ app.locals.mostRecent = (history, attr) => {
 
 app.locals.courseURL = (section) => {
   return section.split('-').slice(0, 2).join('-');
+};
+
+app.locals.dataArray = (history, attr) => {
+  return JSON.stringify(history.map((i) => {
+    return i.ratings[attr];
+  }));
 };
 
 app.listen(app.get('port'), () => {

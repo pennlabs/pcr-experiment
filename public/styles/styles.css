@@ -18,6 +18,13 @@ h2 {
     font-size: 42px;
 }
 
+h2.subhead {
+  font-size: 30px;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
 h3 {
   margin-top: 5px;
 }
@@ -31,6 +38,7 @@ body {
   background-color: white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
   padding-bottom: 25px;
+  margin-top: 20px;
 }
 
 .footer {
@@ -142,4 +150,15 @@ pre {
 
 .box p {
   font-size: 24px;
+}
+
+.glyphicon {
+  font-size: 16px;
+  color: #006064;
+  margin-right: 10px;
+  padding-bottom: 5px;
+}
+
+.contact a {
+  color: #00796B;
 }
