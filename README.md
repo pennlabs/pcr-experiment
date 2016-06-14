@@ -12,10 +12,10 @@ npm start
 
 ### TODO
 
-- [ ] Homepage
-- [ ] Search
-- [ ] Course page
-- [ ] Instructor page
+- [X] Homepage
+- [X] Search
+- [X] Course page
+- [X] Instructor page
 - [ ] Department page
 
 ## Authors
