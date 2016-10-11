@@ -1,1 +1,1 @@
-web: node src/pcr.js
+web: node --use_strict src/pcr.js
